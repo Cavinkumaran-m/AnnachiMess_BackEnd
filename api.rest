@@ -1,0 +1,26 @@
+GET annachimess.azurewebsites.net/show HTTP/1.1
+
+###
+
+POST annachimess.azurewebsites.net/register HTTP/1.1
+content-type: application/json
+
+{
+    "email": "asd",
+    "password": "cqwek",
+    "orders":[],
+    "totalAmount":0,
+    "totalItems":0
+}
+
+###
+POST annachimess.azurewebsites.net/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "test"
+}
+
+###
+GET annachimess.azurewebsites.net/getData HTTP/1.1
