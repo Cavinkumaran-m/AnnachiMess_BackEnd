@@ -7,15 +7,14 @@ const cors = require("cors");
 const app = express();
 const crypt = require("bcrypt");
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3000"],
-//     credentials: true,
-//     methods: ["GET", "POST"],
-//   })
-// );
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+    methods: ["GET", "POST"],
+  })
+);
 
-app.use(cors());
 // Database Connection
 const uri =
   "mongodb+srv://cavinkumaran1257:CAVIN1981@maincluster.ybeixlr.mongodb.net/?retryWrites=true&w=majority";
