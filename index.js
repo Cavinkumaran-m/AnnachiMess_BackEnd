@@ -17,7 +17,7 @@ app.use(
 
 // Database Connection
 const uri =
-  "mongodb+srv://cavinkumaran1257:CAVIN1981@maincluster.ybeixlr.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://cavinkumaran1257:CAVIN1981@maincluster.ybeixlr.mongodb.net/annachi_mess?retryWrites=true&w=majority";
 
 // const uri = "mongodb://localhost:27017/Annachi";
 mongoose
