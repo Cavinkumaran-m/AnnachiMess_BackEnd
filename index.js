@@ -45,7 +45,7 @@ app.use(
     saveUninitialized: false,
     store: Store,
     cookie: {
-      expires: 1000 * 60 * 5,
+      expires: 1000 * 60 * 30,
     },
   })
 );

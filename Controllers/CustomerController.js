@@ -1,4 +1,5 @@
 const Customer = require("../Models/CustomerModels");
+const Order = require("../Models/OrderModels");
 const bcrypt = require("bcrypt");
 
 async function register(req, res, next) {
@@ -90,7 +91,11 @@ function logout(req, res) {
   });
 }
 
-function updateOrder(req, res) {
+async function updateOrder(req, res) {
+  if (req.session.mail == undefined) {
+    res.json({ message: "session expired" });
+    return;
+  }
   Customer.updateOne(
     { email: req.session.mail },
     {
@@ -103,6 +108,18 @@ function updateOrder(req, res) {
   ).then(() => {
     console.log("Order updated");
     res.json({ message: "success" });
+  });
+
+  let newOrder = new Order({
+    email: req.session.mail,
+    date: new Date(),
+    orders: req.body.orders,
+    totalAmount: req.body.Amount,
+    totalItems: req.body.Item,
+  });
+
+  await newOrder.save().then(() => {
+    console.log("Order recorded");
   });
 }
 
