@@ -96,6 +96,7 @@ async function updateOrder(req, res) {
     res.json({ message: "session expired" });
     return;
   }
+
   Customer.updateOne(
     { email: req.session.mail },
     {
@@ -110,6 +111,9 @@ async function updateOrder(req, res) {
     res.json({ message: "success" });
   });
 
+  if (req.body.orders.length === 0) {
+    return;
+  }
   let newOrder = new Order({
     email: req.session.mail,
     date: new Date(),
